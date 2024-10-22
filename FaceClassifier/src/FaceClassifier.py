@@ -53,10 +53,10 @@ def test():
 def train():
 
     for i in range(0, 10): # iterating through all faces several times will result in better weights - results in a better algorithm
-        for i in range(0, len(trainFaces)): # iterate through all input train faces
-            face = trainFaces[i]
+        for j in range(0, len(trainFaces)): # iterate through all input train faces
+            face = trainFaces[j]
             function = calcFunc(face)
-            label = trainLabels[i]
+            label = trainLabels[j]
             if function <= 0 and label == 1: # algorithm says not face but answer is face - increase weights
                 increaseWeights(face)
             elif function > 0 and label == 0: # algorithm says face but answer is not face - decrease weights
