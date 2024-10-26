@@ -160,7 +160,7 @@ def printFace(face):
         for c in line:
             print(c, end="")
 
-# prints the weights associated to each pixel (70 rows x 60 cols)
+# prints the weights associated with each pixel (70 rows x 60 cols)
 def printWeights():
 
     for i in range(0, len(weights)):

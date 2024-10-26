@@ -6,6 +6,8 @@
 # this approach defines each feature to be the pixels comprising each 28 x 28 image
 # therefore, each f is either 1 (if pixel is not ' ') or 0 (if pixel is ' ')
 
+################################ GLOBAL VARIABLES ################################
+
 # each image in the images files spans 28 rows and 28 columns
 totalRows = 28
 totalCols = 28
@@ -28,7 +30,7 @@ totalCorrect = 0
 
 ################################ TESTING ################################
 
-# iterates through all input test digits and determines whether each digit is a digit or not
+# iterates through all input test digits and determines which digit is displayed for each image
 def test():
 
     global totalCorrect
@@ -53,7 +55,7 @@ def train():
             function = calcFunc(digit)
             label = trainLabels[j]
             if(function != label): # algorithm returns a digit different from the label
-                adjustWeights(digit, function, label) # decrease weights associated to function and increase weights associated to label
+                adjustWeights(digit, function, label) # decrease weights associated with function and increase weights associated with label
 
             # there is 1 more case: function == label
             # in the perceptron classification algorithm, the weights should remain the same if the function and label agree
@@ -83,7 +85,7 @@ def calcFunc(digit):
             predictedLabel = i
     return predictedLabel
 
-# decreases the weights associated the function and increases the weights associated to the label
+# decreases the weights associated with the function and increases the weights associated with the label
 # recall that a feature is defined by pixel - action is only done if not ' '
 def adjustWeights(digit, function, label):
 
@@ -151,7 +153,7 @@ def printDigit(digit):
         for c in line:
             print(c, end="")
 
-# prints the weights associated to each pixel (28 rows x 28 cols) for the input digit
+# prints the weights associated with each pixel (28 rows x 28 cols) for the input digit
 def printWeights(digit):
 
     digitWeights = weights[digit]
